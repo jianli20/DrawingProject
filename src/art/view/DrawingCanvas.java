@@ -22,5 +22,12 @@ import art.controller.ArtController;
 
 public class DrawingCanvas extends JPanel
 {
-
+	private ArrayList<Polygon> trinagleList;
+	private ArrayList<Polygon> polygonList;
+	private ArrayList<Ellipse2D> ellipseList;
+	private ArrayList<Rectangle> rectangleList;
+	private ArtController app;
+	
+	private BufferedImage canvasImage;
+	
 }
