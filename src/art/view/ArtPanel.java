@@ -18,6 +18,28 @@ import art.controller.ArtController;
 
 public class ArtPanel extends JPanel
 {
+	private final int MINIMUM_EDGE = 5;
+	private final int MAXIMUM_EDGE = 20;
+	private final int MINIMUM_SCALE = 20;
+	private final int MAXIMUM_SCALE = 100;
 	
+	private ArtController app;
+	
+	private SpringLayout appLayout;
+	private DrawingCanvas canvas;
+	private JPanel buttonPanel;
+	private JPanel sliderPanel;
+	private JSlider scaleSlider;
+	private JSlider edgeSLider;
+	private JButton triangleButton;
+	private JButton rectangleButton;
+	private JButton ellipseButton;
+	private JButton polygonButton;
+	private JButton clearButton;
+	private JButton saveButton;
+	private JButton colorButton;
+	
+	private int currentEdgeCount;
+	private int currentScale;
 }
  
