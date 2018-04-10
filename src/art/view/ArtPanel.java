@@ -90,6 +90,7 @@ public class ArtPanel extends JPanel
 		scaleSlider.setMajorTickSpacing(10);;
 		scaleSlider.setPaintTicks(true);
 		scaleSlider.setPaintLabels(true);
+		scaleSlider.setValue(MINIMUM_SCALE);
 		
 		edgeSlider.setLabelTable(edgeLabels);;
 		edgeSlider.setOrientation(JSlider.VERTICAL);
@@ -102,9 +103,9 @@ public class ArtPanel extends JPanel
 	
 	public void setupPanel()
 	{
-		this.setupLayout(appLayout);
+		this.setupLayout(appLayout); 
 		this.setBackground(Color.DARK_GRAY);
-		this.setPreferredSize(new Dimension(1024, 769));;
+		this.setPreferredSize(new Dimension(1024, 768));;
 		this.add(canvas);
 		
 		buttonPanel.setPreferredSize(new Dimension(200, 450));
@@ -124,7 +125,7 @@ public class ArtPanel extends JPanel
 		this.add(sliderPanel);
 	}
 	
-	public void setupLayout();
+	public void setupLayout()
 	{
 		
 	}
@@ -132,6 +133,30 @@ public class ArtPanel extends JPanel
 	public void setupListeners()
 	{
 		
+	}
+	
+	private boolean coinFlip()
+	{
+		return (int) (Math.random() * 2) == 0;
+	}
+	
+	private Polygon createPolygon(int sides)
+	{
+		Polygon currentShape = new Polygon();
+		
+		int originX = (int) (Math.random() * 600);
+		int originY = (int) (Math.random() * 600);
+		
+		for (int index = 0; index < sides; index++)
+		{
+			int minus = coinFlip() ? -1 : 1;
+			int shiftX = (int) (Math.random() * currentScale) * minus;
+			minus = coinFlip() ? -1 : 1;
+			int shiftY = (int) (Math.random() * currentScale) * minus;
+			currentShape.addPoint(originX + shiftX, originY + shiftY);
+		}
+		
+		return currentShape;
 	}
 }
  
